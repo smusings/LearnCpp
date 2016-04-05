@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+using namespace std;
 
 // cin = standard input stream
 // cout = standard output stream
@@ -10,7 +11,13 @@
 int main ()
 {
 
-	int age = 25;
+	int age;
+	cin >> age;		// sets age
 	cout << "This "<<"is a "<<"single C++ statement" <<endl;
 	cout << "I am " << age << " years old!" <<endl;
+
+	string mystr ("1204");
+	int myint;
+	stringstream(mystr) >> myint;
+	cout << myint;
 }
