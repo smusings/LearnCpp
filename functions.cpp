@@ -17,11 +17,11 @@ int division(int a, int b) {
 	return a/b;
 }
 
-void duplicate(int& a, int& b, int& c)
+void duplicate(int& a, int& b, int& c);
+
+int devide(int a, int b = 2)
 {
-	a*=2;
-	b*=2;
-	c*=2;
+	return a/b;
 }
 
 int main() {
@@ -35,6 +35,16 @@ int main() {
 	cout << "The Division is " << z <<endl;
 	duplicate(x,y,z);
 	cout << "x = " << x << ", y = " << y << ", z=" << z << endl;
+	cout << "Divide (12): " << devide(12) <<endl;
+	cout << "Divide (20, 4): " << devide(20, 4) <<endl;
 
 	return 0;
+}
+
+
+void duplicate(int& a, int& b, int& c)
+{
+	a*=2;
+	b*=2;
+	c*=2;
 }
