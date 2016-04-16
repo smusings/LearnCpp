@@ -60,5 +60,14 @@ int main()
 		cout << myarray[n] << ", ";
 	}
 
+	char a;
+	char * b;
+	char ** c;
+
+	a = 'z';
+	b = &a;
+	c = &b;
+	
+
 	return 0;
 }
