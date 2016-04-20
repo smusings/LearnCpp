@@ -6,27 +6,27 @@ using namespace std;
 struct movies_t {
 	string title;
 	int year;
-}	mine, yours;
+}	films[3];
 
 void printmovie(movies_t movie);
 
 int main()
 {
 	string mystr;
+	int n;
 
-	mine.title = "Star Wars";
-	mine.year = 1977;
+	for (n=0; n<3; n++)
+	{
+		cout << "Enter title: ";
+		getline (cin, films[n].title);
+		cout << "Enter year: ";
+		getline(cin, mystr);
+		stringstream(mystr) >> films[n].year;
+	}
 
-	cout << "Enter title: ";
-	getline (cin, yours.title);
-	cout << "Enter year: ";
-	getline(cin, mystr);
-	stringstream(mystr) >> yours.year;
-
-	cout << "My favorite movie is:\n ";
-	printmovie (mine);
-	cout << "And yours is:\n";
-	printmovie (yours);
+	cout << "\n You have entered these movies:\n";
+	for (n=0; n<3; n++)
+		printmovie (films[n]);
 	return 0;
 }
 
