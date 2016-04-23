@@ -4,22 +4,24 @@ using namespace std;
 class Rectangle {
 	int width, height;
 public:
-	void set_values (int, int);
-	int area()
-	{
-		return width*height;
-	}
+	Rectangle();
+	Rectangle(int, int);
+	int area (void) {return width*height;}
 };
 
-void Rectangle::set_values(int x, int y) {
-	width = x;
-	height = y;
+void Rectangle::Rectangle() {
+	width = 5
+	height = 5;
+}
+
+void Rectangle::Rectangle(int a, int b) {
+	width = a
+	height = b;
 }
 
 int main() {
-	rectangle rect, rectb;
-	rect.set_values(3,4);
-	rectb.set_values(5, 6);
+	Rectangle rect (3, 4);
+	Rectangle rectb;
 	cout << "Area: " << rect.area() << endl;
 	cout << "Area: " << rectb.area() << endl;
 	return 0;
