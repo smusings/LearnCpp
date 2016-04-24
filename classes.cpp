@@ -17,6 +17,14 @@ public:
 	double circum() {return 2*radius*3.14159265;}
 };
 
+class Cylinder {
+	Circle base;
+	double height;
+public:
+	Cylinder(double r, double h) : base(r), height(h) {}
+	double volume() {return base.circum() * height;}
+};
+
 Rectangle::Rectangle() {
 	width = 5;
 	height = 5;
@@ -39,6 +47,15 @@ int main() {
 	cout << "foo's circum: "<< foo.circum() << endl;
 	cout << "bar's circum: "<< bar.circum() << endl;
 
+	Cylinder cyl (10, 20);
+
+	cout << "Foo's volume: " << cyl.volume() << endl;
+
+	Rectangle *rec;
+	rec = &rect;
+	cout << "Pointer: " << rec->area() <<endl;
+	delete rec;
+	cout << rec<<endl;
 
 	return 0;
 }
