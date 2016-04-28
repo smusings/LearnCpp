@@ -25,6 +25,13 @@ public:
 
 int Dummy::n=0;
 
+class MyClass {
+public:
+	int x;
+	MyClass(int val) : x(val) {}
+	int get() {return x;}
+};
+
 
 int main()
 {
@@ -40,4 +47,9 @@ int main()
 	Dummy * c = new Dummy;
 	cout << Dummy::n<<end;
 	delete c;
+
+	const MyClass mc(10);  // cannot alter members outside the class
+	cout << mc.x << '\n';
+	return 0;
+
 	return 0;
