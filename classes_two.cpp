@@ -19,14 +19,12 @@ CVector CVector::operator+ (const CVector& param) {
 
 class Dummy {
 public:
-    bool isitme (Dummy& param);
+	static int n
+	Dummy () {n++;}
 };
 
-bool Dummy::isitme (Dummy& param)
-{
-  	if (&param == this) return true;
-  	else return false;
-}
+int Dummy::n=0;
+
 
 int main()
 {
@@ -37,8 +35,9 @@ int main()
 	cout << result.x << "," << result.y << '\n';
 
 	Dummy a;
-	Dummy* b = &a;
-	if ( b->isitme(a) )
-    cout << "yes, &a is b\n";
+	Dummy b[5];
+	cout << a.n << endl;
+	Dummy * c = new Dummy;
+	cout << Dummy::n<<end;
+	delete c;
 	return 0;
-}
