@@ -19,19 +19,40 @@ CVector CVector::operator+ (const CVector& param) {
 
 class Dummy {
 public:
-	static int n
+	static int n;
 	Dummy () {n++;}
 };
 
 int Dummy::n=0;
 
 class MyClass {
-public:
 	int x;
+public:
 	MyClass(int val) : x(val) {}
-	int get() {return x;}
+	const int& get() const {return x;}
+	int& get() {return x;}
 };
 
+// template
+template <class T>
+class temp {
+	T a, b;
+public:
+	temp(T first, T second)
+	{
+		a = first;
+		b = second;
+	}
+	T getmax();
+};
+
+template <class T>
+T temp<T>::getmax()
+{
+	T retval;
+	retval = a>b? a:b;
+	return retval;
+}
 
 int main()
 {
@@ -45,11 +66,17 @@ int main()
 	Dummy b[5];
 	cout << a.n << endl;
 	Dummy * c = new Dummy;
-	cout << Dummy::n<<end;
+	cout << Dummy::n;
 	delete c;
 
-	const MyClass mc(10);  // cannot alter members outside the class
-	cout << mc.x << '\n';
-	return 0;
+	MyClass m(10);
+	const MyClass mc(20);  // cannot alter members outside the class
+	m.get() = 15;
+	cout << m.get() << endl;
+	cout << mc.get() << endl;
+
+	temp <int> myobject(100,7);
+	cout << myobject.getmax();
 
 	return 0;
+}
