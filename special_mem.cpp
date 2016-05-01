@@ -25,6 +25,17 @@ public:
 	const string& content() const {return data;}
 };
 
+class Example4 {
+	string* ptr;
+public:
+	// constructor
+	Example4() : ptr(new string) {}
+	Example4 (const string& str): ptr(new string(str)) {}
+	// deconstructor
+	~Example4 () {delete ptr;}
+	//access content:
+	const string& content() const {return *ptr;}
+};
 
 int main() {
 	Example ex;
@@ -32,5 +43,13 @@ int main() {
 	Example3 ex3;
 	Example3 ex3b ("Example");
 
+	Example4 foo;
+	Example4 bar ("Example");
+
+	cout << "Bar's content: " << bar.content << endl;
+
+
+
 	return 0;
+	// deconstructor called now
 }
