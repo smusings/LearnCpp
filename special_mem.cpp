@@ -37,6 +37,12 @@ public:
 	const string& content() const {return *ptr;}
 };
 
+class Example5& operator= (const Example5& x) {
+	delete ptr;
+	ptr = new string (x.content());
+	return *this;
+}
+
 int main() {
 	Example ex;
 	Example2 ex2 (100);
