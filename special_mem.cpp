@@ -61,6 +61,17 @@ public:
 	}
 };
 
+class Rectangle {
+    int width, height;
+  public:
+    Rectangle (int x, int y) : width(x), height(y) {}
+    Rectangle() = default;
+    Rectangle (const Rectangle& other) = delete;
+    int area() {return width*height;}
+};
+
+
+
 int main() {
 	Example ex;
 	Example2 ex2 (100);
@@ -77,6 +88,10 @@ int main() {
 
 	cout << "ex5b content: " << ex5b.content() << endl;
 
+	Rectangle foo;
+  	Rectangle bar (10,20);
+
+  	cout << "bar's area: " << bar.area() << endl;	
 
 	return 0;
 	// deconstructor called now
