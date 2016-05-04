@@ -43,6 +43,24 @@ class Example5& operator= (const Example5& x) {
 	return *this;
 }
 
+class Example6 {
+	string* ptr;
+public:
+	Example6 (const string& str) : ptr(new string(str)) {}
+	~Example6 () {delete ptr;}
+	Example6 (Example6&& x): prr(x.ptr) {x.ptr=nullptr;}
+	Example6& operator = (Example6&& x) {
+		delete ptr;
+		ptr = x.ptr;
+		x.ptr = nullptr;
+		return *this;
+	}
+	const string& content() const {return *ptr;}
+	Example6 operator+(const Example6& rhs) {
+		return Example6(content()+rhs.content());
+	}
+};
+
 int main() {
 	Example ex;
 	Example2 ex2 (100);
@@ -54,6 +72,10 @@ int main() {
 
 	cout << "Bar's content: " << bar.content << endl;
 
+	Example5 ex5a ("SKreee");
+	Example5 ex5b = ex5a;
+
+	cout << "ex5b content: " << ex5b.content() << endl;
 
 
 	return 0;
