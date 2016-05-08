@@ -1,39 +1,33 @@
 #include <iostream>
 using namespace std;
 
-class Plygon {
-protected:
-	int width, height;
+class Mother {
 public:
-	void set_values (int a, int b)
+	Mother ()
+	{cout << "Mother: no parameters\n";}
+	Mother (int a)
+	{cout << "Mother: int parameters\n";}
+};
+
+class Daughter: public Mother {
+public:
+	Daughter (int a)
 	{
-		width=a; height=b
+		cout << "Daughter: int paramater\n\n";
 	}
 };
 
-class Rectangle: public Polygon {
+class Son: public Mother {
 public:
-	int area()
+	Son(int a):Mother(a)
 	{
-		return width * height;
-	}
-};
-
-class Triangle: public Polygon {
-public:
-	int area()
-	{
-		return width * height/2
+		cout << "Son: int parameter\n\n";
 	}
 };
 
 int main() {
-	Rectangle rect;
-	Triangle trgl;
-	rect.set_values(4,5);
-	trgl.set_values(4,5);
-	cout << rect.area() << endl;
-	cout << trgl.area() << endl;
+	Daughter Anna(0);
+	Son Eugene(0);
 
 	return 0;
 }
