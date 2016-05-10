@@ -1,33 +1,40 @@
 #include <iostream>
 using namespace std;
 
-class Mother {
-public:
-	Mother ()
-	{cout << "Mother: no parameters\n";}
-	Mother (int a)
-	{cout << "Mother: int parameters\n";}
+class Polygon {
+  protected:
+    int width, height;
+  public:
+    Polygon (int a, int b) : width(a), height(b) {}
 };
 
-class Daughter: public Mother {
-public:
-	Daughter (int a)
-	{
-		cout << "Daughter: int paramater\n\n";
-	}
+class Output {
+  public:
+    static void print (int i);
 };
 
-class Son: public Mother {
-public:
-	Son(int a):Mother(a)
-	{
-		cout << "Son: int parameter\n\n";
-	}
+void Output::print (int i) {
+  cout << i << '\n';
+}
+
+class Rectangle: public Polygon, public Output {
+  public:
+    Rectangle (int a, int b) : Polygon(a,b) {}
+    int area ()
+      { return width*height; }
 };
 
-int main() {
-	Daughter Anna(0);
-	Son Eugene(0);
-
-	return 0;
+class Triangle: public Polygon, public Output {
+  public:
+    Triangle (int a, int b) : Polygon(a,b) {}
+    int area ()
+      { return width*height/2; }
+};
+  
+int main () {
+  Rectangle rect (4,5);
+  Triangle trgl (4,5);
+  rect.print (rect.area());
+  Triangle::print (trgl.area());
+  return 0;
 }
